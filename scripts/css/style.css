@@ -1,7 +1,7 @@
 ﻿body {
   margin: 0;
   padding: 0;
-  background: #2c2c2c;
+  background: #726f6f;
   font-family: Trebuchet MS, sans-serif;
 }
 .header {
@@ -26,13 +26,24 @@
   text-align: center;
 }
 #content {
-  background: lightslategrey;
-  box-sizing: border-box;
+  background: rgb(255, 255, 255);
 }
 #flagButton {
   background-color: blueviolet;
   color: whitesmoke;
-  padding: 1%;
+  padding: 10px;
+  font-weight: 800;
+  font-size: 17px;
+  font-family: 'Trebuchet MS';
+  border-radius: 5%;
+  float: center;
+}
+#quizButton {
+  background-color: rgb(155, 101, 206);
+  color: whitesmoke;
+  padding: 10px;
+  width: 130px;
+  margin: 14px;
   font-weight: 800;
   font-size: 17px;
   font-family: 'Trebuchet MS';

@@ -4,13 +4,15 @@
   <head>
     <meta charset="utf-8" />
     <title>Vlaggen van de wereld</title>
-    <link rel="stylesheet" href="./scripts/css/style.css" />
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
     />
-    <script type="text/javascript" src="./scripts/js/app.js" defer></script>
-    <script type="text/javascript" src="./scripts/js/vendor.js" defer></script>
+    <link rel="stylesheet" href="./scripts/css/style.css" />
+    <script type="text/javascript" src="./scripts/js/app.js"defer></script>
+    <script type="text/javascript" src="./scripts/js/element.js"defer></script>
+    <script type="text/javascript" src="./scripts/js/vendor.js"defer></script>
+   
   </head>
   <body id="myBody">
     <header class="header">
@@ -24,11 +26,11 @@
       <br />
       <br />
     </section>
-    <section class="content-space" id="content">
+    <div class="container content-space" id="content">
       <div id="flags"></div>
-      <div class="form-group" id="quiz">
-        <label for="usr">Wat is de naam van deze vlag:</label>
+      <div class="col-sm-6 form-group" id="quiz">
+        <!-- <label for="usr">Wat is de naam van deze vlag:</label> -->
       </div>
-    </section>
+    </div>
   </body>
 </html>
