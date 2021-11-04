@@ -21,6 +21,9 @@
 * {
   box-sizing: border-box;
 }
+.flags {
+  margin: 0.6em;
+}
 .content-space {
   border-radius: 8px;
   text-align: center;

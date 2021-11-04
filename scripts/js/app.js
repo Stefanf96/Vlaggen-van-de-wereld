@@ -1,20 +1,21 @@
 function quizzer() {
-  const flagId = getFlagCodes(flagJson)
-  createQuizSection(flagId, flagJson[flagId])
+  const flagId = getFlagCodes(flagJson);
+  createQuizSection(flagId, flagJson[flagId]);
 }
 function learning() {
-  const flagId = getFlagCodes(flagJson)
-  createLearnSection(flagId, flagJson[flagId])
+  const flagId = getFlagCodes(flagJson);
+  createLearnSection(flagId, flagJson[flagId]);
 }
 function quizBot(value, answer) {
-  console.log(value)
-  console.log(answer)
-
-  // if (value != answer) {
-  //   const alert = alertHelper()
-  //   contentArea.appendChild(alert)
-  // } else {
-  //   const success = successHelper()
-  //   contentArea.appendChild(success)
-  // }
+  if (value != answer) {
+    const alert = alertHelper('Thats Incorrect! Try Again');
+    contentArea.insertBefore(alert, row);
+  } else {
+    const success = successHelper('Thats Correct!');
+    contentArea.insertBefore(success, row);
+    setTimeout(function () {
+      contentArea.removeChild(success);
+      quizzer();
+    }, 2000);
+  }
 }
