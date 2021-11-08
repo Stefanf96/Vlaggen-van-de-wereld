@@ -6,6 +6,7 @@ const row = document.getElementById('contentRow');
 let flagButton = document.getElementById('flagButton');
 let quizButton = document.getElementById('quizButton');
 let submitButton = document.getElementById('quizzerSubmit');
+let skipButton = document.getElementById('skip');
 
 flagButton.addEventListener('click', learning);
 quizButton.addEventListener('click', quizzer);

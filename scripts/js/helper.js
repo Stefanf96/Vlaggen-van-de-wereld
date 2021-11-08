@@ -2,12 +2,7 @@ function successHelper(message) {
   const quizHelper = document.createElement('div');
   quizHelper.className = 'alert alert-success alert-dismissible';
   quizHelper.role = 'alert';
-
-  const boldElement = document.createElement('STRONG');
-  const successMessage = document.createTextNode(message);
-  boldElement.appendChild(successMessage);
-
-  quizHelper.appendChild(boldElement);
+  quizHelper.innerHTML = message;
 
   const closeButton = document.createElement('button');
   closeButton.className = 'close';
@@ -26,12 +21,7 @@ function alertHelper(message) {
   const quizHelper = document.createElement('div');
   quizHelper.className = 'alert alert-danger alert-dismissible';
   quizHelper.role = 'alert';
-
-  const boldElement = document.createElement('STRONG');
-  const alertMessage = document.createTextNode(message);
-  boldElement.appendChild(alertMessage);
-
-  quizHelper.appendChild(boldElement);
+  quizHelper.innerHTML = message;
 
   const closeButton = document.createElement('button');
   closeButton.className = 'close';

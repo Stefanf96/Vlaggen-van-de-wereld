@@ -1,10 +1,9 @@
-function createImage(id, name) {
+function createImage(id) {
   let image = document.createElement('img');
   image.src = `https://flagcdn.com/48x36/${id}.png`;
   image.srcset = `https://flagcdn.com/16x12/${id}.png 2x, https://flagcdn.com/48x36/${id}.png 3x`;
   image.className = 'flags';
   image.id = 'flagSprite';
-  image.alt = name;
 
   return image;
 }
@@ -13,47 +12,65 @@ function createInputFieldGroup(answer) {
   quiz.id = 'quizSection';
   quiz.className = 'box align-items-center justify-content-center p-3';
 
+  const answerHidden = document.createElement('input');
+  answerHidden.className = 'form-control';
+  answerHidden.hidden = true;
+  answerHidden.id = 'answerInput';
+  answerHidden.type = 'text';
+  answerHidden.value = answer;
+
   const input = document.createElement('input');
   input.className = 'form-control';
   input.id = 'quizzer';
   input.type = 'text';
 
   const submit = document.createElement('button');
-  const submitValue = document.createTextNode('Check');
+  submit.innerText = `Check`;
   submit.type = 'button';
-  submit.className = 'btn button';
+  submit.className = 'btn button quizButtons';
   submit.id = 'quizzerSubmit';
-  submit.appendChild(submitValue);
+  submit.addEventListener('click', function () {
+    quizBot(input.value, answer);
+  });
 
-  let imageName = createImage().alt;
-  submit.addEventListener(
-    'click',
-    function () {
-      quizBot(input.value, answer);
-    },
-    false
-  );
-
+  const skip = document.createElement('button');
+  skip.innerText = `Skip`;
+  skip.type = 'button';
+  skip.className = 'btn button quizButtons';
+  skip.id = 'quizzerSubmit';
+  skip.addEventListener('click', function () {
+    skipQuestion(answer);
+  });
   const quizLabel = document.createElement('label');
   const quizLabelText = document.createTextNode(
-    'Wat is de naam van deze vlag?:'
+    "What's the name of this flag?"
   );
   quizLabel.appendChild(quizLabelText);
 
+  quiz.appendChild(answerHidden);
   quiz.appendChild(quizLabel);
   quiz.appendChild(input);
   quiz.appendChild(submit);
+  quiz.appendChild(skip);
 
   return quiz;
 }
 function createFlagLabel(name) {
-  let flagName = document.createElement('h1');
-  let flagText = document.createTextNode(name);
-  flagName.appendChild(flagText);
-  return flagName;
+  let flagLabel = document.createElement('div');
+  flagLabel.className = 'box align-items-center justify-content-center p-3';
+
+  let flagName = document.createElement('h2');
+  flagName.innerHTML = `This flag is from <strong>${name}</strong>`;
+  flagLabel.appendChild(flagName);
+  return flagLabel;
 }
 function createQuizSection(flagId, flagName) {
-  let image = createImage(flagId, flagName);
+  if (!quizSection.className) {
+    quizSection.className =
+      'form-group box align-items-center justify-content-center p-3';
+  }
+
+  let image = createImage(flagId);
   let quizGroup = createInputFieldGroup(flagName);
 
   let flagExist = quizSection.querySelector('img');
@@ -68,15 +85,18 @@ function createQuizSection(flagId, flagName) {
   }
 }
 function createLearnSection(flagId, flagName) {
+  if (!flags.className) {
+    flags.className = 'box align-items-center justify-content-center p-3';
+  }
+
   let image = createImage(flagId, flagName);
   let imageLabel = createFlagLabel(flagName);
-
   let flagExist = flags.querySelector('img');
-  let flagHeaderExist = flags.querySelector('h1');
+  let flagLabelExist = flags.querySelector('#flags > div');
 
-  if (flagExist != null && flagHeaderExist != null) {
+  if (flagExist != null && flagLabelExist != null) {
     flags.replaceChild(image, flagExist);
-    flags.replaceChild(imageLabel, flagHeaderExist);
+    flags.replaceChild(imageLabel, flagLabelExist);
   } else {
     flags.appendChild(image);
     flags.appendChild(imageLabel);

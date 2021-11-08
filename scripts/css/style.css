@@ -22,7 +22,7 @@
   box-sizing: border-box;
 }
 .flags {
-  margin: 0.6em;
+  margin: 1.3em 1.3em -1.7em 1.3em;
 }
 .content-space {
   border-radius: 8px;
@@ -60,8 +60,9 @@
 #content {
   color: whitesmoke;
 }
-#quizzerSubmit {
+.quizButtons {
   background-color: #f5674e;
   border-color: #f5674e;
   color: whitesmoke;
+  margin: 0.2em;
 }
