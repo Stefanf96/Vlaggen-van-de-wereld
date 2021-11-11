@@ -10,14 +10,3 @@ let skipButton = document.getElementById('skip');
 
 flagButton.addEventListener('click', learning);
 quizButton.addEventListener('click', quizzer);
-
-if (typeof submitButton != 'undefined' || submitButton != null) {
-  let imageName =
-    document.getElementById('flagSprite') != null
-      ? document.getElementById('flagSprite').alt
-      : '';
-  let answer =
-    document.getElementById('quizzer') != null
-      ? document.getElementById('quizzer').value
-      : '';
-}
