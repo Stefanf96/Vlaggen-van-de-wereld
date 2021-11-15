@@ -27,6 +27,7 @@
 .content-space {
   border-radius: 8px;
   text-align: center;
+  padding: 1rem;
 }
 #flagButton {
   background-color: blueviolet;
