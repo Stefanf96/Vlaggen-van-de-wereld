@@ -13,8 +13,7 @@ function createInputFieldGroup(answer) {
   quiz.className = 'box align-items-center justify-content-center p-3'
 
   const answerHidden = document.createElement('input')
-  answerHidden.className = 'form-control'
-  answerHidden.hidden = true
+  answerHidden.className = 'form-control d-none'
   answerHidden.id = 'answerInput'
   answerHidden.type = 'text'
   answerHidden.value = answer
@@ -63,39 +62,80 @@ function createFlagLabel(name) {
   return flagLabel
 }
 function createQuizSection(flagId, flagName) {
-  if (!quizSection.className) {
-    quizSection.className = 'form-group box align-items-center justify-content-center p-3'
+  let quizColumn = document.createElement('div')
+  let quiz = document.createElement('div')
+  quizColumn.className = 'col text-center'
+  quizColumn.id = 'quizColumn'
+  quiz.id = 'quiz'
+  quizColumn.appendChild(quiz)
+
+  if (row.firstChild == null) {
+    row.appendChild(quizColumn)
+  } else {
+    for (let i = 0; i < row.children.length; i++) {
+      if (row.children[i].id == quizColumn.id) {
+        row.replaceChild(quizColumn, row.children[i])
+      } else if (row.children[i].id != quizColumn.id) {
+        row.appendChild(quizColumn)
+      }
+      // } else if (row.children[0] == quizColumn) {
+      //   row.insertBefore(quizColumn, row.children[0])
+      // }
+    }
+  }
+
+  if (!quiz.className) {
+    quiz.className =
+      'form-group box align-items-center justify-content-center p-3'
   }
 
   let image = createImage(flagId)
   let quizGroup = createInputFieldGroup(flagName)
 
-  let flagExist = quizSection.querySelector('img')
-  let quizGroupExist = quizSection.querySelector('#quizSection')
+  let flagExist = quiz.querySelector('img')
+  let quizGroupExist = quiz.querySelector('#quizSection')
 
-  if (flagExist != null && quizGroupExist != null) {
-    quizSection.replaceChild(image, flagExist)
-    quizSection.replaceChild(quizGroup, quizGroupExist)
+  if (flagExist != null && quizGroupExquizist != null) {
+    quiz.replaceChild(image, flagExist)
+    quiz.replaceChild(quizGroup, quizGroupExist)
   } else {
-    quizSection.appendChild(image)
-    quizSection.appendChild(quizGroup)
+    quiz.appendChild(image)
+    quiz.appendChild(quizGroup)
   }
 }
 function createLearnSection(flagId, flagName) {
-  if (!flags.className) {
-    flags.className = 'box align-items-center justify-content-center p-3'
+  let learnColumn = document.createElement('div')
+  let learning = document.createElement('div')
+  learnColumn.className = 'col text-center'
+  learnColumn.id = 'learnColumn'
+  learning.id = 'flags'
+  learnColumn.appendChild(learning)
+  if (row.firstChild == null) {
+    row.appendChild(learnColumn)
+  } else {
+    for (let i = 0; i < row.children.length; i++) {
+      if (row.children[i].id == learnColumn.id) {
+        row.replaceChild(learnColumn, row.children[i])
+      } else if (row.children[i].id != quizColumn.id) {
+        row.appendChild(learnColumn)
+      }
+    }
+  }
+
+  if (!learning.className) {
+    learning.className = 'box align-items-center justify-content-center p-3'
   }
 
   let image = createImage(flagId, flagName)
   let imageLabel = createFlagLabel(flagName)
-  let flagExist = flags.querySelector('img')
-  let flagLabelExist = flags.querySelector('#flags > div')
+  let flagExist = learning.querySelector('img')
+  let flagLabelExist = learning.querySelector('#flags > div')
 
   if (flagExist != null && flagLabelExist != null) {
-    flags.replaceChild(image, flagExist)
-    flags.replaceChild(imageLabel, flagLabelExist)
+    learning.replaceChild(image, flagExist)
+    learning.replaceChild(imageLabel, flagLabelExist)
   } else {
-    flags.appendChild(image)
-    flags.appendChild(imageLabel)
+    learning.appendChild(image)
+    learning.appendChild(imageLabel)
   }
 }

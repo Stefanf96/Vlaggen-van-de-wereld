@@ -14,8 +14,13 @@ function quizBot(value, answer, event) {
       contentArea.removeChild(alert)
     }, 1500)
   }
-  if (value.toLowerCase() != '' && value.toLowerCase() != answer.toLowerCase()) {
-    const alert = alertHelper(`Thats Incorrect! The answer was <strong>${answer}</strong>`)
+  if (
+    value.toLowerCase() != '' &&
+    value.toLowerCase() != answer.toLowerCase()
+  ) {
+    const alert = alertHelper(
+      `Thats Incorrect! The answer was <strong>${answer}</strong>`
+    )
     contentArea.insertBefore(alert, row)
     event.target.setAttribute('disabled', true)
     setTimeout(function () {
@@ -23,7 +28,10 @@ function quizBot(value, answer, event) {
       quizzer()
       event.target.setAttribute('disabled', false)
     }, 2000)
-  } else if (value.toLowerCase() != '' && value.toLowerCase() == answer.toLowerCase()) {
+  } else if (
+    value.toLowerCase() != '' &&
+    value.toLowerCase() == answer.toLowerCase()
+  ) {
     const success = successHelper(`Thats <strong>Correct!</strong>`)
     contentArea.insertBefore(success, row)
     event.target.setAttribute('disabled', true)
