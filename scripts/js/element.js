@@ -75,12 +75,9 @@ function createQuizSection(flagId, flagName) {
     for (let i = 0; i < row.children.length; i++) {
       if (row.children[i].id == quizColumn.id) {
         row.replaceChild(quizColumn, row.children[i])
-      } else if (row.children[i].id != quizColumn.id) {
+      } else {
         row.appendChild(quizColumn)
       }
-      // } else if (row.children[0] == quizColumn) {
-      //   row.insertBefore(quizColumn, row.children[0])
-      // }
     }
   }
 
@@ -116,8 +113,8 @@ function createLearnSection(flagId, flagName) {
     for (let i = 0; i < row.children.length; i++) {
       if (row.children[i].id == learnColumn.id) {
         row.replaceChild(learnColumn, row.children[i])
-      } else if (row.children[i].id != quizColumn.id) {
-        row.appendChild(learnColumn)
+      } else if (row.children[0].id != learnColumn.id) {
+        row.insertBefore(learnColumn, row.children[0])
       }
     }
   }
