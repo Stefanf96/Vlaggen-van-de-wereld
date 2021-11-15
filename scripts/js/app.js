@@ -10,8 +10,10 @@ function quizBot(value, answer, event) {
   if (value.toLowerCase() == '') {
     const alert = alertHelper(`You did not put a answer in`)
     contentArea.insertBefore(alert, row)
+    event.target.setAttribute('disabled', true)
     setTimeout(function () {
       contentArea.removeChild(alert)
+      event.target.removeAttribute('disabled')
     }, 1500)
   }
   if (
@@ -22,7 +24,6 @@ function quizBot(value, answer, event) {
       `Thats Incorrect! The answer was <strong>${answer}</strong>`
     )
     contentArea.insertBefore(alert, row)
-    event.target.setAttribute('disabled', true)
     setTimeout(function () {
       contentArea.removeChild(alert)
       quizzer()
@@ -34,7 +35,6 @@ function quizBot(value, answer, event) {
   ) {
     const success = successHelper(`Thats <strong>Correct!</strong>`)
     contentArea.insertBefore(success, row)
-    event.target.setAttribute('disabled', true)
     setTimeout(function () {
       contentArea.removeChild(success)
       quizzer()
