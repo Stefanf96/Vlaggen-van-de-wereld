@@ -1,59 +1,37 @@
-﻿body {
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
-  background: #a3a1a1;
-  font-family: 'Trebuchet MS', sans-serif;
 }
+
 @font-face {
   font-family: Cotton Butter;
-  src: url('../fonts/CottonButter.ttf');
+  src: url("../fonts/CottonButter.ttf");
 }
-.header {
-  font-family: Cotton Butter;
-  font-weight: 300;
-  font-size: 29px;
-  background-color: #485683;
-  color: white;
-  padding: 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-  width: 100%;
-}
-.header-sm {
-  font-family: 'Trebuchet MS', sans-serif;
-  color: black;
-  padding: 1rem;
-  text-align: center;
-}
-* {
-  box-sizing: border-box;
-}
-.flags {
-  margin: 1.3em 1.3em -1.7em 1.3em;
-}
-.content-space {
-  border-radius: 8px;
-  text-align: center;
-  padding: 1rem;
-}
-#quizButton {
-  background-color: rgb(226, 83, 39);
-  color: whitesmoke;
-}
-#quizButton:hover {
-  background-color: rgb(102, 40, 21);
-  color: whitesmoke;
-}
+
 #flagButton {
-  background-color: rgb(43, 53, 139);
-  color: whitesmoke;
+  background-color: #2b358b;
+  color: white;
   text-overflow: none;
   white-space: nowrap;
 }
+
 #flagButton:hover {
-  background-color: rgb(80, 88, 163);
+  background-color: #6c73ac;
+  color: white;
+}
+
+#quizButton {
+  background-color: #e25327;
+  color: white;
+}
+
+#quizButton:hover {
+  background-color: #662815;
   color: whitesmoke;
 }
+
 .button {
   padding: 10px;
   font-weight: 800;
@@ -65,28 +43,76 @@
   margin: 14px;
 }
 
+.quizButtons {
+  background-color: #2b358b;
+  border-color: #2b358b;
+  color: whitesmoke;
+  margin: 0.2em;
+}
+
+.quizButtons:hover {
+  background-color: #6c73ac;
+  border-color: #6c73ac;
+  color: whitesmoke;
+}
+
+body {
+  background: #a3a1a1;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.header {
+  font-family: Cotton Butter;
+  background-color: #485683;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+
+.header > h1 {
+  font-size: 49px;
+}
+
+#content-area {
+  background: white;
+}
+
+.header-sm {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: black;
+  padding: 1rem;
+  text-align: center;
+}
+
+.flags {
+  margin: 1.3em 1.3em -1.7em 1.3em;
+}
+
+#learnColumn {
+  border-right: 5px solid #a3a1a1;
+}
+
+.content-space {
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+}
+
 #quizzer {
   width: 10em;
   margin: 2% auto;
   float: none;
 }
+
 .box {
-  background: rgb(255, 255, 255);
+  background: transparent;
   margin: 2rem;
   border-radius: 8px;
   text-align: center;
 }
+
 #content {
   color: whitesmoke;
 }
-.quizButtons {
-  background-color: rgb(43, 53, 139);
-  border-color: rgb(43, 53, 139);
-  color: whitesmoke;
-  margin: 0.2em;
-}
-.quizButtons:hover {
-  background-color: rgb(78, 84, 141);
-  border-color: rgb(78, 84, 141);
-  color: whitesmoke;
-}
+/*# sourceMappingURL=style.css.map */

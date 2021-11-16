@@ -1,0 +1,45 @@
+$first_button: rgb(43, 53, 139);
+$first_button_hover: rgb(108, 115, 172);
+
+$second_button: rgb(226, 83, 39);
+$second_button_hover: rgb(102, 40, 21);
+
+#flagButton {
+  background-color: $first_button;
+  color: white;
+  text-overflow: none;
+  white-space: nowrap;
+  &:hover {
+    background-color: $first_button_hover;
+    color: white;
+  }
+}
+#quizButton {
+  background-color: $second_button;
+  color: white;
+  &:hover {
+    background-color: $second_button_hover;
+    color: whitesmoke;
+  }
+}
+.button {
+  padding: 10px;
+  font-weight: 800;
+  font-size: 17px;
+  font-family: 'Trebuchet MS', sans-serif;
+  border-radius: 5%;
+  float: center;
+  width: 150px;
+  margin: 14px;
+}
+.quizButtons {
+  background-color: $first_button;
+  border-color: $first_button;
+  color: whitesmoke;
+  margin: 0.2em;
+  &:hover {
+    background-color: $first_button_hover;
+    border-color: $first_button_hover;
+    color: whitesmoke;
+  }
+}

@@ -1,0 +1,17 @@
+$background: #a3a1a1;
+$header_background: #485683;
+
+$gradient_1: #1dcdfd;
+$gradient_2: #21d0b9;
+$gradient_3: #34f4c6;
+$background2: linear-gradient(
+  90deg,
+  $gradient_1 30%,
+  $gradient_2 49%,
+  $gradient_3 100%
+);
+
+@font-face {
+  font-family: Cotton Butter;
+  src: url('../fonts/CottonButter.ttf');
+}

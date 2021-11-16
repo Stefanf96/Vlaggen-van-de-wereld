@@ -1,7 +1,6 @@
 function createImage(id) {
   let image = document.createElement('img')
   image.src = `https://flagcdn.com/48x36/${id}.png`
-  image.srcset = `https://flagcdn.com/16x12/${id}.png 2x, https://flagcdn.com/48x36/${id}.png 3x`
   image.className = 'flags'
   image.id = 'flagSprite'
 
@@ -64,7 +63,7 @@ function createFlagLabel(name) {
 function createQuizSection(flagId, flagName) {
   let quizColumn = document.createElement('div')
   let quiz = document.createElement('div')
-  quizColumn.className = 'col text-center'
+  quizColumn.className = 'col text-center column'
   quizColumn.id = 'quizColumn'
   quiz.id = 'quiz'
   quizColumn.appendChild(quiz)
@@ -103,10 +102,11 @@ function createQuizSection(flagId, flagName) {
 function createLearnSection(flagId, flagName) {
   let learnColumn = document.createElement('div')
   let learning = document.createElement('div')
-  learnColumn.className = 'col text-center'
+  learnColumn.className = 'col text-center column'
   learnColumn.id = 'learnColumn'
   learning.id = 'flags'
   learnColumn.appendChild(learning)
+
   if (row.firstChild == null) {
     row.appendChild(learnColumn)
   } else {

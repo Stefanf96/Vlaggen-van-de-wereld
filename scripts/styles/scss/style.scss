@@ -1,0 +1,55 @@
+﻿@import '_resets';
+@import '_variables';
+@import '_buttons';
+
+body {
+  background: $background;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+.header {
+  font-family: Cotton Butter;
+  background-color: $header_background;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.header > h1 {
+  font-size: 49px;
+}
+#content-area {
+  background: white;
+}
+
+.header-sm {
+  font-family: 'Trebuchet MS', sans-serif;
+  color: black;
+  padding: 1rem;
+  text-align: center;
+}
+.flags {
+  margin: 1.3em 1.3em -1.7em 1.3em;
+}
+#learnColumn {
+  border-right: 5px solid $background;
+}
+.content-space {
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+}
+
+#quizzer {
+  width: 10em;
+  margin: 2% auto;
+  float: none;
+}
+.box {
+  background: transparent;
+  margin: 2rem;
+  border-radius: 8px;
+  text-align: center;
+}
+#content {
+  color: whitesmoke;
+}
