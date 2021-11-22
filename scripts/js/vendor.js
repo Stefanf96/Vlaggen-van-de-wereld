@@ -8,7 +8,10 @@ let quizButton = document.getElementById('quizButton')
 let submitButton = document.getElementById('quizzerSubmit')
 const skipButton = document.getElementById('skipQuestionButton')
 
-flagButton.addEventListener('click', learning)
+flagButton.addEventListener('click', function () {
+  learning()
+  flagButton.setAttribute('disabled', true)
+})
 quizButton.addEventListener('click', function () {
   quizzer()
   quizButton.setAttribute('disabled', true)

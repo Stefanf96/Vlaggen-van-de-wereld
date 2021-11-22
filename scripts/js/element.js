@@ -21,6 +21,14 @@ function createInputFieldGroup(answer) {
   input.className = 'form-control'
   input.id = 'quizzer'
   input.type = 'text'
+  input.addEventListener('keyup', function (event) {
+    if (event.keyCode === 13) {
+      // Cancel the default action, if needed
+      event.preventDefault()
+      // Trigger the button element with a click
+      quizBot(input.value, answer, event)
+    }
+  })
 
   const submit = document.createElement('button')
   submit.innerText = `Check`
@@ -101,11 +109,20 @@ function createQuizSection(flagId, flagName) {
 }
 function createLearnSection(flagId, flagName) {
   let learnColumn = document.createElement('div')
-  let learning = document.createElement('div')
+  let learningImageSection = document.createElement('div')
   learnColumn.className = 'col text-center column'
   learnColumn.id = 'learnColumn'
-  learning.id = 'flags'
-  learnColumn.appendChild(learning)
+  learningImageSection.id = 'flags'
+  learnColumn.appendChild(learningImageSection)
+
+  const newFlag = document.createElement('button')
+  newFlag.innerText = `Learn a new flag`
+  newFlag.type = 'button'
+  newFlag.className = 'btn button quizButtons'
+  newFlag.id = 'newFlag'
+  newFlag.addEventListener('click', learning)
+
+  learnColumn.appendChild(newFlag)
 
   if (row.firstChild == null) {
     row.appendChild(learnColumn)
@@ -120,19 +137,20 @@ function createLearnSection(flagId, flagName) {
   }
 
   if (!learning.className) {
-    learning.className = 'box align-items-center justify-content-center p-3'
+    learningImageSection.className =
+      'box align-items-center justify-content-center p-3'
   }
 
   let image = createImage(flagId, flagName)
   let imageLabel = createFlagLabel(flagName)
-  let flagExist = learning.querySelector('img')
-  let flagLabelExist = learning.querySelector('#flags > div')
+  let flagExist = learningImageSection.querySelector('img')
+  let flagLabelExist = learningImageSection.querySelector('#flags > div')
 
   if (flagExist != null && flagLabelExist != null) {
-    learning.replaceChild(image, flagExist)
-    learning.replaceChild(imageLabel, flagLabelExist)
+    learningImageSection.replaceChild(image, flagExist)
+    learningImageSection.replaceChild(imageLabel, flagLabelExist)
   } else {
-    learning.appendChild(image)
-    learning.appendChild(imageLabel)
+    learningImageSection.appendChild(image)
+    learningImageSection.appendChild(imageLabel)
   }
 }

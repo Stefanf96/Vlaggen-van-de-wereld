@@ -22,6 +22,14 @@ $second_button_hover: rgb(102, 40, 21);
     color: whitesmoke;
   }
 }
+#newFlag {
+  background-color: $second_button;
+  color: white;
+  &:hover {
+    background-color: $second_button_hover;
+    color: whitesmoke;
+  }
+}
 .button {
   padding: 10px;
   font-weight: 800;

@@ -20,7 +20,7 @@ function quizBot(value, answer, event) {
     value.toLowerCase() != '' &&
     value.toLowerCase() != answer.toLowerCase()
   ) {
-    const alert = alertModal(
+    const alert = successHelper(
       `Thats Incorrect! The answer was <strong>${answer}</strong>`
     )
     contentArea.insertBefore(alert, row)
