@@ -1,0 +1,24 @@
+#modalPopup {
+  background-color: hotpink;
+  color: white;
+}
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  overflow: auto;
+  height: 100vh;
+  width: 100vw;
+  transition: display 0.3s ease-in-out;
+}
+
+.correctImage > img {
+  height: 14rem;
+  width: 14rem;
+}
+.incorrectImage > img {
+  height: 14rem;
+  width: 14rem;
+}

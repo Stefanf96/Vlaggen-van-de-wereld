@@ -115,15 +115,6 @@ function createLearnSection(flagId, flagName) {
   learningImageSection.id = 'flags'
   learnColumn.appendChild(learningImageSection)
 
-  const newFlag = document.createElement('button')
-  newFlag.innerText = `Learn a new flag`
-  newFlag.type = 'button'
-  newFlag.className = 'btn button quizButtons'
-  newFlag.id = 'newFlag'
-  newFlag.addEventListener('click', learning)
-
-  learnColumn.appendChild(newFlag)
-
   if (row.firstChild == null) {
     row.appendChild(learnColumn)
   } else {
@@ -136,21 +127,31 @@ function createLearnSection(flagId, flagName) {
     }
   }
 
-  if (!learning.className) {
+  if (!learningImageSection.className) {
     learningImageSection.className =
       'box align-items-center justify-content-center p-3'
   }
 
   let image = createImage(flagId, flagName)
   let imageLabel = createFlagLabel(flagName)
+  const newFlag = document.createElement('button')
+  newFlag.innerText = `Learn a new flag`
+  newFlag.type = 'button'
+  newFlag.id = 'newFlag'
+  newFlag.className = 'btn button'
+  newFlag.addEventListener('click', learning)
+
   let flagExist = learningImageSection.querySelector('img')
   let flagLabelExist = learningImageSection.querySelector('#flags > div')
+  let buttonExist = learningImageSection.querySelector('#flags > button')
 
   if (flagExist != null && flagLabelExist != null) {
     learningImageSection.replaceChild(image, flagExist)
     learningImageSection.replaceChild(imageLabel, flagLabelExist)
+    learningImageSection.replaceChild(newFlag, buttonExist)
   } else {
     learningImageSection.appendChild(image)
     learningImageSection.appendChild(imageLabel)
+    learningImageSection.appendChild(newFlag)
   }
 }

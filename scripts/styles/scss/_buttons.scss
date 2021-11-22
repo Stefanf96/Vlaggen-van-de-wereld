@@ -4,6 +4,16 @@ $first_button_hover: rgb(108, 115, 172);
 $second_button: rgb(226, 83, 39);
 $second_button_hover: rgb(102, 40, 21);
 
+#newFlag {
+  background-color: $first_button;
+  color: white;
+  text-overflow: none;
+  white-space: nowrap;
+  &:hover {
+    background-color: $first_button_hover;
+    color: whitesmoke;
+  }
+}
 #flagButton {
   background-color: $first_button;
   color: white;
@@ -22,14 +32,7 @@ $second_button_hover: rgb(102, 40, 21);
     color: whitesmoke;
   }
 }
-#newFlag {
-  background-color: $second_button;
-  color: white;
-  &:hover {
-    background-color: $second_button_hover;
-    color: whitesmoke;
-  }
-}
+
 .button {
   padding: 10px;
   font-weight: 800;

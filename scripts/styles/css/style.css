@@ -10,6 +10,18 @@
   src: url("../fonts/CottonButter.ttf");
 }
 
+#newFlag {
+  background-color: #2b358b;
+  color: white;
+  text-overflow: none;
+  white-space: nowrap;
+}
+
+#newFlag:hover {
+  background-color: #6c73ac;
+  color: whitesmoke;
+}
+
 #flagButton {
   background-color: #2b358b;
   color: white;
@@ -54,6 +66,38 @@
   background-color: #6c73ac;
   border-color: #6c73ac;
   color: whitesmoke;
+}
+
+#modalPopup {
+  background-color: hotpink;
+  color: white;
+}
+
+.modal {
+  background-color: rgba(0, 0, 0, 0.3);
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: fixed;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: auto;
+  height: 100vh;
+  width: 100vw;
+  -webkit-transition: display 0.3s ease-in-out;
+  transition: display 0.3s ease-in-out;
+}
+
+.correctImage > img {
+  height: 14rem;
+  width: 14rem;
+}
+
+.incorrectImage > img {
+  height: 14rem;
+  width: 14rem;
 }
 
 body {
@@ -107,7 +151,7 @@ body {
 
 .box {
   background: transparent;
-  margin: 2rem;
+  margin: 1rem;
   border-radius: 8px;
   text-align: center;
 }

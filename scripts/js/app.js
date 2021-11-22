@@ -8,46 +8,56 @@ function learning() {
 }
 function quizBot(value, answer, event) {
   if (value.toLowerCase() == '') {
-    const alert = alertHelper(`You did not put a answer in`)
-    contentArea.insertBefore(alert, row)
+    const alert = createModal(
+      `Alert`,
+      `The answer was <strong>${answer}</strong>`
+    )
     event.target.setAttribute('disabled', true)
+    document.body.append(alert)
     setTimeout(function () {
-      contentArea.removeChild(alert)
-      event.target.removeAttribute('disabled')
-    }, 1500)
+      document.body.removeChild(alert)
+      quizzer()
+      event.target.setAttribute('disabled', true)
+    }, 2000)
+
+    // contentArea.insertBefore(alert, row)
   }
   if (
     value.toLowerCase() != '' &&
     value.toLowerCase() != answer.toLowerCase()
   ) {
-    const alert = successHelper(
+    const alert = createModal(
+      `Alert`,
       `Thats Incorrect! The answer was <strong>${answer}</strong>`
     )
-    contentArea.insertBefore(alert, row)
+    document.body.append(alert)
     setTimeout(function () {
-      contentArea.removeChild(alert)
+      document.body.removeChild(alert)
       quizzer()
-      event.target.setAttribute('disabled', false)
+      event.target.setAttribute('disabled', true)
     }, 2000)
   } else if (
     value.toLowerCase() != '' &&
     value.toLowerCase() == answer.toLowerCase()
   ) {
-    const success = successHelper(`Thats <strong>Correct!</strong>`)
-    contentArea.insertBefore(success, row)
+    const success = createModal(`Success`, `Thats <strong>Correct!</strong>`)
+    document.body.append(success)
     setTimeout(function () {
-      contentArea.removeChild(success)
+      document.body.removeChild(success)
       quizzer()
-      event.target.setAttribute('disabled', false)
+      event.target.setAttribute('disabled', true)
     }, 2000)
   }
 }
 function skipQuestion(answer, event) {
-  const alert = alertHelper(`The answer was <strong>${answer}</strong>`)
-  contentArea.insertBefore(alert, row)
+  const alert = createModal(
+    `Alert`,
+    `The answer was <strong>${answer}</strong>`
+  )
   event.target.setAttribute('disabled', true)
+  document.body.append(alert)
   setTimeout(function () {
-    contentArea.removeChild(alert)
+    document.body.removeChild(alert)
     quizzer()
     event.target.setAttribute('disabled', true)
   }, 2000)
