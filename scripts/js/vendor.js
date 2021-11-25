@@ -8,7 +8,8 @@ let quizButton = document.getElementById('quizButton')
 let submitButton = document.getElementById('quizzerSubmit')
 const skipButton = document.getElementById('skipQuestionButton')
 const modalButton = document.getElementById('modalPopup')
-const modal_container = document.getElementById('success')
+const modal = document.getElementById('success')
+const message = document.getElementById('message')
 let modal_close = document.getElementById('close')
 
 flagButton.addEventListener('click', function () {
@@ -21,15 +22,10 @@ quizButton.addEventListener('click', function () {
 })
 
 modalButton.addEventListener('click', function () {
-  // modal_container.classList.add('show')
-
-  const modal = createModal('Success', 'Thats Correct')
-  document.body.append(modal)
+  createModal('Success', 'Thats Correct!')
 })
 if (modal_close != null) {
   modal_close.addEventListener('click', function () {
-    // modal_container.classList.add('show')
-    console.log(modal_container)
-    document.body.removeChild(modal_container)
+    modal.style.display = 'none'
   })
 }

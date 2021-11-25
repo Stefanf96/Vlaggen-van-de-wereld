@@ -8,17 +8,11 @@ function learning() {
 }
 function quizBot(value, answer, event) {
   if (value.toLowerCase() == '') {
-    const alert = createModal(
-      `Alert`,
-      `The answer was <strong>${answer}</strong>`
-    )
+    createModal(`Alert`, `You didn't put a answer in`, 1500)
     event.target.setAttribute('disabled', true)
-    document.body.append(alert)
     setTimeout(function () {
-      document.body.removeChild(alert)
-      quizzer()
-      event.target.setAttribute('disabled', true)
-    }, 2000)
+      event.target.setAttribute('disabled', false)
+    }, 1000)
 
     // contentArea.insertBefore(alert, row)
   }
@@ -26,11 +20,11 @@ function quizBot(value, answer, event) {
     value.toLowerCase() != '' &&
     value.toLowerCase() != answer.toLowerCase()
   ) {
-    const alert = createModal(
+    createModal(
       `Alert`,
-      `Thats Incorrect! The answer was <strong>${answer}</strong>`
+      `That's Incorrect! The answer was <strong>${answer}</strong>`
     )
-    document.body.append(alert)
+
     setTimeout(function () {
       document.body.removeChild(alert)
       quizzer()
@@ -50,14 +44,9 @@ function quizBot(value, answer, event) {
   }
 }
 function skipQuestion(answer, event) {
-  const alert = createModal(
-    `Alert`,
-    `The answer was <strong>${answer}</strong>`
-  )
+  createModal(`Alert`, `The answer was <strong>${answer}</strong>`)
   event.target.setAttribute('disabled', true)
-  document.body.append(alert)
   setTimeout(function () {
-    document.body.removeChild(alert)
     quizzer()
     event.target.setAttribute('disabled', true)
   }, 2000)

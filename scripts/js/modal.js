@@ -1,42 +1,44 @@
-let modalWrap = null
-function createModal(modalType, content) {
-  if (modalWrap !== null) {
-    modalWrap.remove()
-  }
-  if (modalType == 'Success') {
-    const modal = document.getElementById('success')
-    const message = document.getElementById('message')
-    modal.style.display = 'flex'
-    message.innerHTML = `<h1>${content}</h1>`
-    // modalWrap = document.createElement('div')
-    // modalWrap.className = 'modal'
-    // modalWrap.id = 'modal'
-    // modalWrap.setAttribute('role', 'dialog')
-    // modalWrap.innerHTML = ``
-  }
+function createModal(modalType, content, count) {
+  let modalContentHeader = document.querySelector(
+    'div.modal-content > div.modal-header '
+  )
+  let modalContentBody = document.querySelector(
+    'div.modal-content > div.modal-body '
+  )
+  modal.style.display = 'flex'
   if (modalType == 'Alert') {
-    modalWrap = document.createElement('div')
-    modalWrap.className = 'modal'
-    modalWrap.id = 'modal'
-    modalWrap.setAttribute('role', 'dialog')
-    modalWrap.innerHTML = `
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" id ="close" onclick="">
-          &times;
-          </button>
-        </div>
-
-        <div class="modal-body">
-          <div class="incorrectImage">
-          <i class="fas fa-check-circle"></i>
-            <h1>Incorrect</h1>
-            <p id="messageSection">${content}</p>
-          </div>
-        </div>
-      </div>
-    </div>`
+    modalContentHeader.style.cssText = `
+    background-color: #f8d7da;
+    border-color: red;
+    `
+    modalContentBody.style.cssText = `
+    background-color: #f8d7da;
+    border-color: red;
+    font-family: Cotton Butter;
+    `
+  } else {
+    modalContentHeader.style.cssText = `
+    background: #d4edda;
+    border-color: #8bc098;
+    `
+    modalContentBody.style.cssText = `
+    background: #d4edda;
+    border-color: #8bc098;
+    font-family: Cotton Butter;
+    `
   }
-  return modalWrap
+  message.innerHTML = `<h1>${content}</h1>`
+
+  if (count == undefined) {
+    setTimeout(function () {
+      modal.style.display = 'none'
+    }, 2000)
+  } else {
+    setTimeout(function () {
+      modal.style.display = 'none'
+    }, count)
+  }
+}
+function dismissModal() {
+  modal.style.display = 'none'
 }

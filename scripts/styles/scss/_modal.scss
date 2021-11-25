@@ -13,6 +13,17 @@
   width: 100vw;
   transition: display 0.3s ease-in-out;
 }
+#alert > .modal-header {
+  background-color: #f8d7da;
+  border-color: red;
+  border-radius: 8%;
+}
+
+#success > .modal-header {
+  background: #d4edda;
+  border-color: #8bc098;
+  border-radius: 8%;
+}
 
 .correctImage > img {
   height: 14rem;
